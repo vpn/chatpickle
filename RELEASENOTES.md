@@ -1,5 +1,9 @@
 # Chatpickle Release Notes
 
+## v2.2.4
+
+Security: Update aws-sdk to address known vulnerabilities
+
 ## v2.2.3
 
 Adding v22 to supported node releases
