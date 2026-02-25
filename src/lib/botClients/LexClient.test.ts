@@ -1,20 +1,17 @@
-// Need to bypass type safety of typescript to allow this approach for mocking to work.
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const LexRuntime = require('aws-sdk/clients/lexruntime');
 import LexClient from './LexClient';
 
-jest.mock('aws-sdk/clients/lexruntime');
+jest.mock('@aws-sdk/client-lex-runtime-service');
 
-const lexRuntimePostTextPromise = jest.fn().mockReturnValue({
-    promise: jest.fn().mockResolvedValue({
-        sessionAttributes: { foo: 'bar' },
-        message: 'This is a mocked message.',
-    }),
+const mockSend = jest.fn().mockResolvedValue({
+    sessionAttributes: { foo: 'bar' },
+    message: 'This is a mocked message.',
 });
 
-LexRuntime.mockImplementation(() => ({
-    postText: lexRuntimePostTextPromise,
-}));
+// Need to bypass type safety of typescript to allow this approach for mocking to work.
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { LexRuntimeServiceClient } = require('@aws-sdk/client-lex-runtime-service');
+
+LexRuntimeServiceClient.prototype.send = mockSend;
 
 test('LexClient.speak()', async (): Promise<void> => {
     const botContext = {

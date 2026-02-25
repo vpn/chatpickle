@@ -1,5 +1,14 @@
 # Chatpickle Release Notes
 
+## v2.3.0
+
+Major: Migrate to AWS SDK v3
+
+-   Upgraded from aws-sdk v2 to @aws-sdk/client-lex-runtime v3
+-   Implements command-based API pattern (PostTextCommand)
+-   Improved credentials handling aligned with SDK v3 standards
+-   Resolves end-of-support warnings from AWS SDK v2
+
 ## v2.2.4
 
 Security: Update aws-sdk to address known vulnerabilities
