@@ -4,8 +4,9 @@
 
 Major: Migrate to AWS SDK v3
 
--   Upgraded from aws-sdk v2 to @aws-sdk/client-lex-runtime v3
--   Implements command-based API pattern (PostTextCommand)
+-   Upgraded from aws-sdk v2 to @aws-sdk/client-lex-runtime-v2 v3
+-   Migrated from Lex v1 to Lex v2 API (RecognizeTextCommand)
+-   Config now uses botId/botAliasId/localeId instead of botName/botAlias
 -   Improved credentials handling aligned with SDK v3 standards
 -   Resolves end-of-support warnings from AWS SDK v2
 

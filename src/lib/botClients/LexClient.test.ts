@@ -1,22 +1,23 @@
 import LexClient from './LexClient';
 
-jest.mock('@aws-sdk/client-lex-runtime-service');
+jest.mock('@aws-sdk/client-lex-runtime-v2');
 
 const mockSend = jest.fn().mockResolvedValue({
-    sessionAttributes: { foo: 'bar' },
-    message: 'This is a mocked message.',
+    sessionState: { sessionAttributes: { foo: 'bar' } },
+    messages: [{ content: 'This is a mocked message.' }],
 });
 
 // Need to bypass type safety of typescript to allow this approach for mocking to work.
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { LexRuntimeServiceClient } = require('@aws-sdk/client-lex-runtime-service');
+const { LexRuntimeV2Client } = require('@aws-sdk/client-lex-runtime-v2');
 
-LexRuntimeServiceClient.prototype.send = mockSend;
+LexRuntimeV2Client.prototype.send = mockSend;
 
 test('LexClient.speak()', async (): Promise<void> => {
     const botContext = {
-        botName: 'OrderFlowers',
-        botAlias: 'prod',
+        botId: 'TESTBOTID1',
+        botAliasId: 'TSTALIASID',
+        localeId: 'en_US',
         region: 'us-east-1',
     };
     const userContext = {

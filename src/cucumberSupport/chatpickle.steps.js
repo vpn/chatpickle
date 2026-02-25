@@ -46,7 +46,10 @@ Given('the user begins a new chat with {string}', async function(botName) {
     await this.botClient.initialize();
 });
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 When(/User:\s*([^\n\r]*)/i, async function(inputText) {
+    await sleep(1000);
     this.botReply = await this.botClient.speak(inputText);
 });
 

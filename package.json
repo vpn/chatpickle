@@ -37,7 +37,7 @@
         "prepublish": "npm run build"
     },
     "dependencies": {
-        "@aws-sdk/client-lex-runtime-service": "^3.997.0",
+        "@aws-sdk/client-lex-runtime-v2": "^3.997.0",
         "chai": "^4.3.4",
         "cucumber": "^6.0.5",
         "lodash.get": "^4.4.2",

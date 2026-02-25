@@ -3,23 +3,25 @@
         "OrderFlowers": {
             "type": "Lex",
             "context": {
-                "botName": "OrderFlowers",
-                "botAlias": "prod",
+                "botId": "JRA2BB9EJT",
+                "botAliasId": "TSTALIASID",
+                "localeId": "en_US",
                 "region": "us-east-1"
             }
         },
         "ScheduleAppointment": {
             "type": "Lex",
             "context": {
-                "botName": "ScheduleAppointment",
-                "botAlias": "prod",
+                "botId": "JRA2BB9EJT",
+                "botAliasId": "TSTALIASID",
+                "localeId": "en_US",
                 "region": "us-east-1"
             }
         }
     },
     "users": {
         "homer": {
-            "description": "Basic User Profile",
+            "description": "Test User Profile",
             "context": {
                 "userId": "homer",
                 "userAttributes": {
